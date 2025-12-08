@@ -12,10 +12,11 @@ origin: [
   "http://[::1]:5173",
   "http://localhost",
   "http://127.0.0.1",
-  "http://[::1]"
+  "http://[::1]",
+  "http://10.243.104.205:5173",
+  "http://10.102.234.81:5173"
 ],
 credentials: true
-                // ⬅ REQUIRED for cookies
 }));
 
 
