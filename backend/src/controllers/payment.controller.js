@@ -18,8 +18,8 @@ const coursePayment = asyncHandler(async(req,res)=>{
       throw new ApiError(401,"Student not authenticated")
     }
 
-    // Check if using dummy keys
-    if(process.env.KEY_ID === 'dummy_key') {
+    // Check if using dummy keys or no keys
+    if(!instance || process.env.KEY_ID === 'dummy_key') {
       // Return mock order for testing
       const mockOrder = {
         id: `order_mock_${Date.now()}`,

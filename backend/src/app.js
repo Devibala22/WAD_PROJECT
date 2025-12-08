@@ -26,10 +26,12 @@ app.use(express.static("public"))
 app.use(cookieParser())
 
 
-export const instance = new Razorpay({
-    key_id: process.env.KEY_ID,
-    key_secret: process.env.KEY_SECRET
-})
+export const instance = process.env.KEY_ID && process.env.KEY_SECRET 
+    ? new Razorpay({
+        key_id: process.env.KEY_ID,
+        key_secret: process.env.KEY_SECRET
+      })
+    : null
 
 //student routes
 import studentRouter from "./routes/student.routes.js";
