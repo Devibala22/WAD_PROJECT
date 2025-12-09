@@ -4,6 +4,7 @@ import "./Login.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import Radiobtn from "../Components/RadioBtn/Radiobtn";
 import Header from "../Home/Header/Header";
+import API_BASE_URL from "../../config/api";
 
 export default function Login() {
   // State to hold user input and errors
@@ -47,7 +48,7 @@ export default function Login() {
 
     try {
       // Send data to backend (you need to implement this part)
-      const response = await fetch(`/api/${userType}/login`, {
+      const response = await fetch(`${API_BASE_URL}/api/${userType}/login`, {
         method: 'POST',
         
         headers: {
