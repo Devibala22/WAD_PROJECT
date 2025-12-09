@@ -4,6 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import Images from "../Images/Grammar-correction.svg";
 import Radiobtn from "../Components/RadioBtn/Radiobtn";
 import Header from "../Home/Header/Header";
+import API_BASE_URL from "../../config/api";
 
 const Signup = () => {
   // State to hold user input and errors
@@ -61,7 +62,7 @@ const Signup = () => {
 
     try {
       // Send data to backend (you need to implement this part)
-      const response = await fetch(`/api/${userType}/signup`, {
+      const response = await fetch(`${API_BASE_URL}/api/${userType}/signup`, {
         method: "POST",
         mode: "cors",
         credentials: "include",
