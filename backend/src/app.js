@@ -25,6 +25,15 @@ app.use(express.urlencoded({extended: true, limit: "16kb"}))
 app.use(express.static("public"))
 app.use(cookieParser())
 
+// Health check route
+app.get("/", (req, res) => {
+    res.json({ status: "OK", message: "E-Learning Platform API is running", timestamp: new Date().toISOString() });
+});
+
+app.get("/health", (req, res) => {
+    res.json({ status: "healthy", service: "e-learning-backend" });
+});
+
 
 export const instance = process.env.KEY_ID && process.env.KEY_SECRET 
     ? new Razorpay({
